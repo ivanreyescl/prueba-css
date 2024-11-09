@@ -69,7 +69,7 @@ main {
         "header-title"
         "main" 
         "footer";
-    grid-template-rows: 8% 5% auto 8%;
+    grid-template-rows: 8% 7% auto 8%;
     height: 100vh;
 }   
 
@@ -79,7 +79,7 @@ main {
     background-image: url("/assets/img/banner.png");
     display: flex;
     justify-content: center;
-    padding:1%;
+    align-items: center;
     border:4px solid black;
 }
 
@@ -238,7 +238,7 @@ footer > p {
             "aside header-title"
             "aside main"
             "footer footer";
-        grid-template-rows: 5% auto 8%;
+        grid-template-rows: 10% auto 8%;
         grid-template-columns: 250px 1fr;
         height: 100vh;
     }
