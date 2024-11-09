@@ -12,27 +12,93 @@
 body {
     background-color: #f8f8f8;
 }
+.logo{
+    width: 20%;
+    padding:4%;
+}
+
+.aside-menu > a {
+    color: white;
+    text-decoration: none;
+}
+.contact-form {
+    padding: 30px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.contact-form > h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.contact-form > label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #555;
+}
 
 main {
     display: grid;
     grid-template-areas: 
         "aside"
-        "search"
+        "header-title"
         "main" 
         "footer";
-    grid-template-rows: 8% 10% auto 8%;
+    grid-template-rows: 8% 5% auto 8%;
     height: 100vh;
 }   
+
+/* header_title */
+.header-title {
+    grid-area: header-title;
+    background-image: url("/assets/img/banner.png");
+    display: flex;
+    justify-content: center;
+    padding:1%;
+    border:4px solid black;
+}
+
+.header-title > h2 {
+    background-color: rgba(255, 12, 12, 0.116);
+    color:white
+}
+
 
 /* aside */
 aside {
     grid-area: aside;
-    background-color: #00579c;
+    background-color: #630000;
     padding: 0 1.5rem;
     gap: 2%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-bottom:1px solid black;
 }
 
 .aside-title {
@@ -41,6 +107,7 @@ aside {
     gap: 1rem;
     justify-content: space-between;
     width: 100%;
+    border-bottom: #250101;
 }
 
 .aside-bars {
@@ -56,24 +123,6 @@ aside {
 
 aside > div > i, aside > div > h1 {
     color: #e2e2e2;
-}
-
-/* Search container */
-.search-container {
-    grid-area: search;
-    background-color: #e2e2e2;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    gap: 7%;
-}
-
-.search-container > div > select {
-    width: 290px;
-    border: 0px solid;
-    background-color: white;
-    padding: 10px;
 }
 
 /* Cards (mobile) */
@@ -97,22 +146,34 @@ aside > div > i, aside > div > h1 {
     padding: 10%;
     gap: 1rem;
     border: 1px solid #dfdfdf;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-mobile:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 16px gray
 }
 
 .card-mobile > button {
-    background-color: #00579c;
+    background-color: #630000;
     color: white;
     font-size: 14px;
     padding: 2%;
     max-width: 300px;
     width: 100%;
-    transition: background-color 30ms ease-out 2%;
+    border-radius:85%;
+    transition: background-color 0.1s ease-out;
 }
 
 .card-mobile > button:hover {
     background-color: #ffae00;
 }
 
+.card-mobile > button:active {
+    background-color: #ffffff;
+    color: black;
+}
 .product-image-mobile {
     display: flex;
     justify-content: center;
@@ -135,29 +196,35 @@ aside > div > i, aside > div > h1 {
 
 .site-pagination-mobile > a {
     padding: 4%;
-    color: #00579c;
+    color: #630000;
     border: 1px solid #dfdfdf;
 }
-.site-pagination-desktop{
-    display:none;
-}
+
 
 /* Footer */
 footer {
     height: 6rem;
-    padding: 3%;
+    padding: 1%;
     color: white;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
-    background-color: #012f6b;
+    background-color: #250101;
     grid-area: footer;
     font-weight: bold;
+    border-top:4px solid black;
 }
 
-footer > div > i {
+footer > div > a > i {
     color: white;
+    transition: 0.5s;
+}
+
+footer > div > a > i:hover {
+    color: white;
+    transition: 0.5s;
+    scale:calc(1.2)
 }
 
 footer > p {
@@ -168,13 +235,18 @@ footer > p {
 @media (min-width: 576px) {
     main {
         grid-template-areas: 
-            "aside search"
+            "aside header-title"
             "aside main"
-            "footer main";
-        grid-template-rows: 15% auto 8%;
+            "footer footer";
+        grid-template-rows: 5% auto 8%;
         grid-template-columns: 250px 1fr;
         height: 100vh;
     }
+    .logo{
+        width: 30%;
+        padding:5%;
+    }
+    
 
     .cards {
         display: flex;
@@ -200,17 +272,26 @@ footer > p {
         padding: 2px;
         gap: 1px;
         width: 30%;
-        height: 33%;
+        height:40%;
+        border:1px solid #530d0d1e;
         box-sizing: border-box;
+        border-radius: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card-desktop:hover {
+        transform: scale(1.01);
+        box-shadow: 0 8px 16px gray
     }
 
     .card-desktop > button {
-        background-color: #00579c;
+        background-color: #630000;
         color: white;
         font-size: 14px;
         padding: 2%;
         max-width: 300px;
-        width: 100%;
+        width: 50%;
+        border-radius: 80%;
         transition: background-color 0.1s ease-out;
     }
     
@@ -224,36 +305,22 @@ footer > p {
     }
 
     .product-image-desktop > img {
-        width: 75%;
+        width: 200px;
         max-width: 270px;
-        height: auto;
     }
 
     /* Pagination */
-    .site-pagination-desktop {
-        display: flex;
-        justify-content: center;
-    }
-
-    .site-pagination-desktop > a {
-        padding: 1%;
-        color: #00579c;
-    }
     .site-pagination-mobile{
         display:none;
     }
 
-    /* Search container */
-    .search-container > div > select {
-        width: 70%;
-        padding: 10px;
-    }
 
     /* aside menu */
     aside {
         display: flex;
         flex-direction: column;
         justify-content: start;
+        border-right:4px solid black;
     }
 
     .aside-title {
@@ -276,7 +343,4 @@ footer > p {
         display: none;
     }
 
-    .aside-menu > p {
-        color: white;
-    }
 }
